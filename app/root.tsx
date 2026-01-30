@@ -12,8 +12,10 @@ import "./app.css";
 import { ThemeProvider } from "next-themes";
 import "./i18n.client";
 import { SearchProvider } from "./context/SearchContext";
+import { faviconLinks } from "./components/Favicon";
 
 export const links: Route.LinksFunction = () => [
+  ...faviconLinks,
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",

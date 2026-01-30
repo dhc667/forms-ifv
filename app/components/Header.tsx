@@ -3,8 +3,13 @@ import { ThemeSwitcher } from '@/components/ui/theme-switcher';
 import { LanguageSwitcher } from '@/components/ui/language-switcher';
 import { SearchAndFilters } from '@/components/ui/search-and-filters';
 import { useTranslation } from 'react-i18next';
+import { Logo } from '@/components/Logo';
 
-export function Header() {
+export interface HeaderProps {
+  showSearch?: boolean;
+}
+
+export function Header({ showSearch = false }: HeaderProps) {
   const location = useLocation();
   const { t } = useTranslation('navigation');
 
@@ -16,7 +21,7 @@ export function Header() {
     <header className="bg-primary text-primary-foreground px-6 py-4 flex items-center justify-between">
       <div className="flex items-center gap-8">
         <div className="flex items-center gap-2">
-          <img src="/assets/IFVLogo.svg" alt="IFV Logo" className="w-6 h-6" />
+          <Logo className="w-6 h-6" />
           <span className="text-lg font-semibold">{t('ifv')}</span>
         </div>
         <nav className="flex items-center gap-6">
@@ -47,7 +52,8 @@ export function Header() {
         </nav>
       </div>
       <div className="flex items-center gap-4">
-        <SearchAndFilters />
+        {showSearch && (
+        <SearchAndFilters /> )}
         <LanguageSwitcher />
         <ThemeSwitcher />
       </div>

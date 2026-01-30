@@ -3,19 +3,10 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
 import { useSearch } from '@/context/SearchContext';
-import { useLocation } from 'react-router';
 
 export function SearchAndFilters({ showFilters = true }: { showFilters?: boolean }) {
   const { t } = useTranslation('navigation');
   const { query, setQuery, clearSearch } = useSearch();
-  const location = useLocation();
-
-  // Show search & filters on content pages only
-  const showSearchAndFilters = !['/create-schema', '/debug'].includes(location.pathname);
-
-  if (!showSearchAndFilters) {
-    return null;
-  }
 
   return (
     <div className="flex items-center gap-2">

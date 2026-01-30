@@ -4,7 +4,7 @@ import { TableView } from '@/components/TableView';
 export default function FormsPage() {
   return (
     <div>
-      <Header />
+      <Header showSearch={true}/>
       <TableView />
     </div>
   );
