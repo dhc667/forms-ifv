@@ -25,9 +25,7 @@ const formSchema = z.object({
   agree: z.boolean().refine(val => val === true, {
     message: "You must agree to the terms.",
   }),
-  priority: z.enum(["low", "medium", "high"], {
-    required_error: "Please select a priority level.",
-  }),
+  priority: z.enum(["low", "medium", "high"]),
 })
 
 export default function ComponentsTest() {
