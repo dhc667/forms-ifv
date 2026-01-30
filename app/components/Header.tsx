@@ -33,8 +33,8 @@ export function Header() {
             {t('createSchema')}
           </Link>
           <Link
-            to="/forms"
-            className={`${isActive('/forms') || isActive('/') ? 'text-primary-foreground border-b-2 border-primary-foreground pb-1' : 'text-primary-foreground/90'} hover:text-primary-foreground transition-colors`}
+            to="/"
+            className={`${isActive('/') ? 'text-primary-foreground border-b-2 border-primary-foreground pb-1' : 'text-primary-foreground/90'} hover:text-primary-foreground transition-colors`}
           >
             {t('forms')}
           </Link>
