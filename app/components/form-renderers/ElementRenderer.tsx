@@ -1,5 +1,6 @@
 import type { QuestionComponent } from '@/lib/form-builder/types/question';
 import { TextRenderer } from './TextRenderer';
+import { SelectionRenderer } from './SelectionRenderer';
 
 interface ElementRendererProps {
   element: QuestionComponent;
@@ -26,12 +27,7 @@ export function ElementRenderer({ element, onRightClick, preview = false }: Elem
       );
     case 'multiple-selection':
     case 'single-selection':
-      return (
-        <div onContextMenu={handleContextMenu} className="inline-block">
-          {/* Selection content - future implementation */}
-          Selection Element
-        </div>
-      );
+      return <SelectionRenderer element={element as any} onRightClick={onRightClick} preview={preview} />;
     case 'image':
       return (
         <div onContextMenu={handleContextMenu} className="inline-block">

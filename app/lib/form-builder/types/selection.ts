@@ -3,17 +3,20 @@ export interface SelectionOption {
   title: string;
 }
 
-export interface MultipleSelection {
+export interface SelectionBase {
   id: string;
-  type: 'multiple-selection';
-  options: SelectionOption[];
+  title?: string; // Optional title for the selection group
 }
 
-export interface SingleSelection {
-  id: string;
+export type SingleSelection = SelectionBase & {
   type: 'single-selection';
   options: SelectionOption[];
-}
+};
 
-export type SelectionElement = MultipleSelection | SingleSelection;
+export type MultipleSelection = SelectionBase & {
+  type: 'multiple-selection';
+  options: SelectionOption[];
+};
+
+export type SelectionElement = SingleSelection | MultipleSelection;
 

@@ -20,7 +20,9 @@
     "emailInput": "Correo Electrónico:",
     "phoneInput": "Teléfono:",
     "dateInput": "Fecha:",
-    "textareaInput": "Área de Texto:"
+    "textareaInput": "Área de Texto:",
+    "radioGroupTitle": "Selecciona una opción",
+    "checkboxGroupTitle": "Selecciona opciones"
   },
   "placeholders": {
     "textInput": "Ingrese texto...",

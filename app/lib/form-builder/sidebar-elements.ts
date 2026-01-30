@@ -1,5 +1,8 @@
-import type { QuestionComponent } from './question';
-import type { TextElement, TableElement, SelectionElement } from '@/lib/form-builder/types';
+import type { TextElement } from '@/lib/form-builder/types/text';
+import type { TableElement } from '@/lib/form-builder/types/table';
+import type { SelectionElement } from '@/lib/form-builder/types/selection';
+import type { ImageElement } from '@/lib/form-builder/types/image';
+import type { QuestionComponent } from '@/lib/form-builder/types/question';
 
 export interface SidebarElementFactory {
   id: string;
@@ -182,12 +185,28 @@ export const createSidebarElements = (t: any): SidebarElementFactory[] => [
   },
   // Selection Components
   {
-    id: 'radio-group',
+    id: 'radio-group-with-title',
     type: 'selection',
     createElement: (): SelectionElement => {
       const radioOptions = t('options.radio', { ns: 'form-builder', returnObjects: true }) as string[];
       return {
-        id: 'preview-radio-group',
+        id: 'preview-radio-group-with-title',
+        type: 'single-selection',
+        title: t('sidebarLabels.radioGroupTitle', { ns: 'form-builder' }),
+        options: radioOptions.map((option, index) => ({
+          id: `radio-option-${index + 1}`,
+          title: option
+        }))
+      };
+    }
+  },
+  {
+    id: 'radio-group-no-title',
+    type: 'selection',
+    createElement: (): SelectionElement => {
+      const radioOptions = t('options.radio', { ns: 'form-builder', returnObjects: true }) as string[];
+      return {
+        id: 'preview-radio-group-no-title',
         type: 'single-selection',
         options: radioOptions.map((option, index) => ({
           id: `radio-option-${index + 1}`,
@@ -197,12 +216,28 @@ export const createSidebarElements = (t: any): SidebarElementFactory[] => [
     }
   },
   {
-    id: 'checkbox-group',
+    id: 'checkbox-group-with-title',
     type: 'selection',
     createElement: (): SelectionElement => {
       const checkboxOptions = t('options.checkbox', { ns: 'form-builder', returnObjects: true }) as string[];
       return {
-        id: 'preview-checkbox-group',
+        id: 'preview-checkbox-group-with-title',
+        type: 'multiple-selection',
+        title: t('sidebarLabels.checkboxGroupTitle', { ns: 'form-builder' }),
+        options: checkboxOptions.map((option, index) => ({
+          id: `checkbox-option-${index + 1}`,
+          title: option
+        }))
+      };
+    }
+  },
+  {
+    id: 'checkbox-group-no-title',
+    type: 'selection',
+    createElement: (): SelectionElement => {
+      const checkboxOptions = t('options.checkbox', { ns: 'form-builder', returnObjects: true }) as string[];
+      return {
+        id: 'preview-checkbox-group-no-title',
         type: 'multiple-selection',
         options: checkboxOptions.map((option, index) => ({
           id: `checkbox-option-${index + 1}`,
