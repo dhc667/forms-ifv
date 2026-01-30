@@ -44,25 +44,48 @@ npm run build
 
 ## Deployment
 
-### Docker Deployment
+### GitHub Pages Deployment
 
-To build and run using Docker:
+This application is configured for deployment to GitHub Pages as a static SPA.
+
+#### Prerequisites
+- A GitHub repository
+- GitHub Pages enabled for the repository
+
+#### Configuration
+1. Update the base path in `vite.config.ts` to match your repository name:
+   ```typescript
+   base: '/forms-front/', 
+   ```
+
+2. Enable GitHub Pages in your repository settings:
+   - Go to Settings → Pages
+   - Select "GitHub Actions" as the source
+
+#### Automated Deployment
+The application includes a GitHub Actions workflow that automatically deploys to GitHub Pages on every push to the main branch.
+
+#### Manual Deployment
+To deploy manually:
 
 ```bash
-docker build -t my-app .
+# Install dependencies
+pnpm install
 
-# Run the container
-docker run -p 3000:3000 my-app
+# Build the application
+pnpm build
+
+# Deploy to GitHub Pages
+pnpm deploy
 ```
 
-The containerized application can be deployed to any platform that supports Docker, including:
+The build process will:
+- Generate static assets in `build/client/`
+- Copy `index.html` to `404.html` for SPA routing
+- Deploy the client directory to GitHub Pages
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
+#### Repository Configuration
+Make sure your GitHub repository has Pages enabled and is configured to deploy from the `gh-pages` branch or GitHub Actions.
 
 ### DIY Deployment
 

@@ -23,7 +23,10 @@ i18n
     },
 
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
+      loadPath: process.env.NODE_ENV === 'production' 
+        ? '/forms-front/locales/{{lng}}/{{ns}}.json'
+        : '/locales/{{lng}}/{{ns}}.json'
+      ,
     },
 
     ns: ['common', 'navigation', 'forms', 'validation', 'schemas', 'my-forms', 'create-schema', 'form-builder'],
