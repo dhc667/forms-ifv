@@ -5,8 +5,8 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
-  base: process.env.NODE_ENV === 'production' ? '/forms-front/' : '/', 
+  base: process.env.VITE_BASE_PATH || '/', 
   build: {
-    outDir: 'dist', // Standard output directory for GitHub Pages
+    outDir: 'build',
   },
 });
