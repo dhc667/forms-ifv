@@ -67,6 +67,7 @@ export const exampleFormSchema: FormSchema = {
         {
           id: generateUUID(),
           type: 'single-selection',
+          title: "Sexo",
           options: [
             { id: generateUUID(), title: 'Masculino' },
             { id: generateUUID(), title: 'Femenino' },
@@ -83,6 +84,7 @@ export const exampleFormSchema: FormSchema = {
         {
           id: generateUUID(),
           type: 'multiple-selection',
+          title: "Idiomas que habla",
           options: [
             { id: generateUUID(), title: 'Español' },
             { id: generateUUID(), title: 'Inglés' },
