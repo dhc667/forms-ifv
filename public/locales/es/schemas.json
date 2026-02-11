@@ -1,5 +1,21 @@
 {
   "title": "Esquemas",
   "description": "Vista de gestión de esquemas",
-  "comingSoon": "Vista de esquemas - Próximamente"
+  "comingSoon": "Vista de esquemas - Próximamente",
+  "table": {
+    "id": "ID",
+    "titulo": "Título",
+    "version": "Versión",
+    "creadoPor": "Creado por",
+    "fechaCreacion": "Fecha de creación",
+    "estado": "Estado"
+  },
+  "estados": {
+    "activo": "Activo",
+    "borrador": "Borrador",
+    "archivado": "Archivado"
+  },
+  "noData": "No hay esquemas disponibles",
+  "loading": "Cargando esquemas...",
+  "results": "{{count}} resultado(s)"
 }

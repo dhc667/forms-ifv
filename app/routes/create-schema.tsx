@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { Save } from 'lucide-react';
+import { toast } from 'sonner';
 import { Header } from '@/components/Header';
 import { Sidebar } from '@/components/Sidebar';
 import { QuestionCard } from '@/components/QuestionCard';
@@ -39,15 +41,25 @@ export default function CreateSchemaPage() {
     }));
   };
 
-  const addQuestion = () => {
-    // For now, just add an empty question - we'll implement this properly later
-    setFormSchema(prev => ({
-      ...prev,
-      questions: [...prev.questions, {
+  const addQuestion = (index?: number) => {
+    setFormSchema(prev => {
+      const newQuestion = {
         id: crypto.randomUUID(),
         components: []
-      }]
-    }));
+      };
+
+      const newQuestions = [...prev.questions];
+      if (index !== undefined) {
+        newQuestions.splice(index, 0, newQuestion);
+      } else {
+        newQuestions.push(newQuestion);
+      }
+
+      return {
+        ...prev,
+        questions: newQuestions
+      };
+    });
   };
 
   const handleElementRightClick = (element: any, event: React.MouseEvent) => {
@@ -58,9 +70,23 @@ export default function CreateSchemaPage() {
     });
   };
 
+  const handleSave = () => {
+    console.log('Saving schema:', formSchema);
+    toast.success(t('saveSuccess'));
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
+
+      {/* Floating Save Button */}
+      <Button
+        onClick={handleSave}
+        className="fixed top-20 right-8 z-50 shadow-lg"
+      >
+        <Save className="mr-2 h-4 w-4" />
+        {t('save')}
+      </Button>
 
       <div className="flex">
         <Sidebar />
@@ -79,13 +105,14 @@ export default function CreateSchemaPage() {
                 components={question.components}
                 onDelete={() => deleteQuestion(question.id)}
                 onElementRightClick={handleElementRightClick}
+                onAddQuestion={addQuestion}
               />
             ))}
 
             <Button
-              onClick={addQuestion}
+              onClick={() => addQuestion()}
               variant="outline"
-              className="w-full border-dashed border-primary-light text-primary hover:bg-primary/5"
+              className="w-full border-dashed border-primary-light bg-primary text-primary-foreground hover:bg-primary/5"
             >
               <span className="text-2xl mr-2">+</span>
               <span>{t('addQuestion')}</span>

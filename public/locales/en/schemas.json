@@ -1,5 +1,21 @@
 {
   "title": "Schemas",
   "description": "Schema management view",
-  "comingSoon": "Schema management view - Coming soon"
+  "comingSoon": "Schema management view - Coming soon",
+  "table": {
+    "id": "ID",
+    "titulo": "Title",
+    "version": "Version",
+    "creadoPor": "Created by",
+    "fechaCreacion": "Creation date",
+    "estado": "Status"
+  },
+  "estados": {
+    "activo": "Active",
+    "borrador": "Draft",
+    "archivado": "Archived"
+  },
+  "noData": "No schemas available",
+  "loading": "Loading schemas...",
+  "results": "{{count}} result(s)"
 }

@@ -9,7 +9,8 @@
     "dateInput": "Fecha:",
     "textareaInput": "Área de Texto:",
     "radioGroupTitle": "Selecciona una opción",
-    "checkboxGroupTitle": "Selecciona opciones"
+    "checkboxGroupTitle": "Selecciona opciones",
+    "imageUpload": "Subir Imagen"
   },
   "placeholders": {
     "textInput": "Ingrese texto...",

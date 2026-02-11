@@ -7,14 +7,16 @@ interface QuestionCardProps {
   questionNumber: number;
   components: QuestionComponent[]; // Required now
   onDelete: () => void;
-  onElementRightClick?: (element: any, event: React.MouseEvent) => void;
+  onAddQuestion: (index?: number) => void;
+  onElementRightClick: (element: any, event: React.MouseEvent) => void;
 }
 
 export function QuestionCard({
   questionNumber,
   components,
   onDelete,
-  onElementRightClick
+  onElementRightClick,
+  onAddQuestion,
 }: QuestionCardProps) {
   return (
     <div className="border-2 border-dashed border-primary-light rounded-lg p-6 bg-background relative group">
@@ -51,7 +53,7 @@ export function QuestionCard({
         </div>
       </div>
 
-      <button className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-primary-light text-primary-foreground rounded-full p-1.5 hover:bg-primary-dark transition-colors">
+      <button onClick={() => onAddQuestion(questionNumber)} className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-primary-light text-primary-foreground rounded-full p-1.5 hover:bg-primary-dark transition-colors">
         <Plus size={18} />
       </button>
     </div>

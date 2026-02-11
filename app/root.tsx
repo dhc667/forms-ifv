@@ -10,6 +10,7 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import { ThemeProvider } from "next-themes";
+import { Toaster } from "sonner";
 import "./i18n.client";
 import { SearchProvider } from "./context/SearchContext";
 import { faviconLinks } from "./components/Favicon";
@@ -56,6 +57,7 @@ export default function App() {
     >
       <SearchProvider>
         <Outlet />
+        <Toaster />
       </SearchProvider>
     </ThemeProvider>
   );

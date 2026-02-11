@@ -156,7 +156,8 @@ export const exampleFormSchema: FormSchema = {
       components: [
         {
           id: generateUUID(),
-          type: 'image'
+          type: 'image',
+          title: 'Inserte una imagen'
         } as ImageElement
       ]
     }

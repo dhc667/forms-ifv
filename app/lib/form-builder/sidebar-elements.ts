@@ -204,5 +204,15 @@ export const createSidebarElements = (t: any): SidebarElementFactory[] => [
         }))
       };
     }
+  },
+  // Image Components
+  {
+    id: 'image-upload',
+    type: 'image',
+    createElement: (): ImageElement => ({
+      id: 'preview-image-upload',
+      type: 'image',
+      title: t('sidebarLabels.imageUpload', { ns: 'form-builder' })
+    })
   }
 ];

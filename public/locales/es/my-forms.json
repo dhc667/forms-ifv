@@ -1,5 +1,21 @@
 {
   "title": "Mis Formularios",
   "description": "Vista de tus formularios personales",
-  "comingSoon": "Vista de mis formularios - Próximamente"
+  "comingSoon": "Vista de mis formularios - Próximamente",
+  "table": {
+    "id": "ID",
+    "titulo": "Título",
+    "estado": "Estado",
+    "fechaEnvio": "Fecha de Envío",
+    "revisadoPor": "Revisado Por",
+    "aprobadoPor": "Aprobado Por"
+  },
+  "estados": {
+    "draft": "Borrador",
+    "pending": "Pendiente de Aprobación",
+    "approved": "Aprobado"
+  },
+  "noData": "No hay formularios disponibles",
+  "loading": "Cargando formularios...",
+  "results": "{{count}} resultado(s)"
 }

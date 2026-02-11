@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronRight, Type, Table, List } from 'lucide-react';
+import { ChevronRight, Type, Table, List, Image } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
@@ -42,7 +42,7 @@ function CollapsibleGroup({ title, icon, items, defaultOpen = false, onDragStart
         {items.map((item) => (
           <div
             key={item.id}
-            className="border border-dashed border-border/30 rounded p-2 cursor-move hover:bg-muted/20 transition-all bg-card"
+            className="border border-dashed border-border/30 rounded p-2 cursor-move hover:bg-muted/20 transition-all bg-background"
             draggable
             onDragStart={() => onDragStart(item)}
           >
@@ -92,6 +92,18 @@ export function Sidebar() {
       defaultOpen: false,
       items: sidebarElementFactories
         .filter(el => el.type === 'selection')
+        .map(el => ({
+          id: el.id,
+          preview: <PreviewRenderer element={el.createElement(t)} />,
+          schema: el.createElement(t)
+        }))
+    },
+    {
+      title: t('images'),
+      icon: <Image className="h-4 w-4" />,
+      defaultOpen: false,
+      items: sidebarElementFactories
+        .filter(el => el.type === 'image')
         .map(el => ({
           id: el.id,
           preview: <PreviewRenderer element={el.createElement(t)} />,

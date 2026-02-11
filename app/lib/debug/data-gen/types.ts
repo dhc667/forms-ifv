@@ -12,3 +12,21 @@ export interface FormRow {
   aprobado: string;
   fecha: string;
 }
+
+export interface SchemaRow {
+  id: string;
+  titulo: string;
+  version: string;
+  creadoPor: string;
+  fechaCreacion: string;
+  estado: 'activo' | 'borrador' | 'archivado';
+}
+
+export interface MyFormRow {
+  id: string;
+  titulo: string;
+  estado: 'draft' | 'pending' | 'approved';
+  fechaEnvio?: string;
+  revisadoPor?: string;
+  aprobadoPor?: string;
+}
