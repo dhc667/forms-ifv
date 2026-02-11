@@ -1,0 +1,26 @@
+{
+  "options": {
+    "radio": ["Option 1", "Option 2", "Option 3"],
+    "checkbox": ["Option 1", "Option 2", "Option 3"]
+  },
+  "sidebarLabels": {
+    "textInput": "Text Input:",
+    "numberInput": "Number:",
+    "dateInput": "Date:",
+    "textareaInput": "Text Area:",
+    "radioGroupTitle": "Select an option",
+    "checkboxGroupTitle": "Select options",
+    "imageUpload": "Upload Image"
+  },
+  "placeholders": {
+    "textInput": "Enter text...",
+    "numberInput": "0",
+    "emailInput": "email@example.com",
+    "phoneInput": "+1 (555) 123-4567",
+    "textareaInput": "Enter longer text here..."
+  },
+  "table": {
+    "texts": "Texts",
+    "numbers": "Numbers"
+  }
+}

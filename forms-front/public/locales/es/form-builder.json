@@ -1,0 +1,26 @@
+{
+  "options": {
+    "radio": ["Opción 1", "Opción 2", "Opción 3"],
+    "checkbox": ["Opción 1", "Opción 2", "Opción 3"]
+  },
+  "sidebarLabels": {
+    "textInput": "Entrada de Texto:",
+    "numberInput": "Número:",
+    "dateInput": "Fecha:",
+    "textareaInput": "Área de Texto:",
+    "radioGroupTitle": "Selecciona una opción",
+    "checkboxGroupTitle": "Selecciona opciones",
+    "imageUpload": "Subir Imagen"
+  },
+  "placeholders": {
+    "textInput": "Ingrese texto...",
+    "numberInput": "0",
+    "emailInput": "correo@ejemplo.com",
+    "phoneInput": "+1 (555) 123-4567",
+    "textareaInput": "Ingrese texto más largo aquí..."
+  },
+  "table": {
+    "texts": "Textos",
+    "numbers": "Números"
+  }
+}

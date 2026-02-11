@@ -1,0 +1,15 @@
+{
+  "ifv": "IFV",
+  "schemas": "Esquemas",
+  "createSchema": "Crear Esquema",
+  "forms": "Formularios",
+  "myForms": "Mis Formularios",
+  "searchPlaceholder": "Buscar...",
+  "filter": "Filtrar",
+  "language": "Idioma",
+  "components": "Componentes",
+  "textComponents": "Componentes de Texto",
+  "tables": "Tablas",
+  "selection": "Selección",
+  "images": "Imágenes"
+}

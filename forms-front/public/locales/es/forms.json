@@ -1,0 +1,15 @@
+{
+  "title": "Formularios",
+  "description": "Lista de formularios disponibles",
+  "table": {
+    "id": "ID",
+    "titulo": "Título",
+    "elaborado": "Elaborado por",
+    "revisado": "Revisado por",
+    "aprobado": "Aprobado por",
+    "fecha": "Fecha"
+  },
+  "noData": "No hay formularios disponibles",
+  "loading": "Cargando formularios...",
+  "results": "{{count}} resultado(s)"
+}

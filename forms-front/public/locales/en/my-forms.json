@@ -1,0 +1,21 @@
+{
+  "title": "My Forms",
+  "description": "Your personal forms view",
+  "comingSoon": "My forms view - Coming soon",
+  "table": {
+    "id": "ID",
+    "titulo": "Title",
+    "estado": "Status",
+    "fechaEnvio": "Submission Date",
+    "revisadoPor": "Reviewed By",
+    "aprobadoPor": "Approved By"
+  },
+  "estados": {
+    "draft": "Draft",
+    "pending": "Pending Approval",
+    "approved": "Approved"
+  },
+  "noData": "No forms available",
+  "loading": "Loading forms...",
+  "results": "{{count}} result(s)"
+}

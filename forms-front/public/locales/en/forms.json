@@ -1,0 +1,15 @@
+{
+  "title": "Forms",
+  "description": "Available forms list",
+  "table": {
+    "id": "ID",
+    "titulo": "Title",
+    "elaborado": "Created by",
+    "revisado": "Reviewed by",
+    "aprobado": "Approved by",
+    "fecha": "Date"
+  },
+  "noData": "No forms available",
+  "loading": "Loading forms...",
+  "results": "{{count}} result(s)"
+}
