@@ -11,6 +11,8 @@ export function createLiteralText(content: string): LiteralText {
   return {
     id: generateUUID(),
     type: 'embedded-text',
-    content
+    content,
   };
 }
+
+export type LiteralTextValue = never;

@@ -18,42 +18,41 @@ export function Header({ showSearch = false }: HeaderProps) {
   };
 
   return (
-    <header className="bg-primary text-primary-foreground px-6 py-4 flex items-center justify-between">
+    <header className="bg-primary text-primary-foreground flex items-center justify-between px-6 py-4">
       <div className="flex items-center gap-8">
         <div className="flex items-center gap-2">
-          <Logo className="w-6 h-6" />
+          <Logo className="h-6 w-6" />
           <span className="text-lg font-semibold">{t('ifv')}</span>
         </div>
         <nav className="flex items-center gap-6">
           <Link
             to="/schemas"
-            className={`${isActive('/schemas') ? 'text-primary-foreground border-b-2 border-primary-foreground pb-1' : 'text-primary-foreground/90'} hover:text-primary-foreground transition-colors`}
+            className={`${isActive('/schemas') ? 'text-primary-foreground border-primary-foreground border-b-2 pb-1' : 'text-primary-foreground/90'} hover:text-primary-foreground transition-colors`}
           >
             {t('schemas')}
           </Link>
           <Link
             to="/create-schema"
-            className={`${isActive('/create-schema') ? 'text-primary-foreground border-b-2 border-primary-foreground pb-1' : 'text-primary-foreground/90'} hover:text-primary-foreground transition-colors`}
+            className={`${isActive('/create-schema') ? 'text-primary-foreground border-primary-foreground border-b-2 pb-1' : 'text-primary-foreground/90'} hover:text-primary-foreground transition-colors`}
           >
             {t('createSchema')}
           </Link>
           <Link
             to="/"
-            className={`${isActive('/') ? 'text-primary-foreground border-b-2 border-primary-foreground pb-1' : 'text-primary-foreground/90'} hover:text-primary-foreground transition-colors`}
+            className={`${isActive('/') ? 'text-primary-foreground border-primary-foreground border-b-2 pb-1' : 'text-primary-foreground/90'} hover:text-primary-foreground transition-colors`}
           >
             {t('forms')}
           </Link>
           <Link
             to="/my-forms"
-            className={`${isActive('/my-forms') ? 'text-primary-foreground border-b-2 border-primary-foreground pb-1' : 'text-primary-foreground/90'} hover:text-primary-foreground transition-colors`}
+            className={`${isActive('/my-forms') ? 'text-primary-foreground border-primary-foreground border-b-2 pb-1' : 'text-primary-foreground/90'} hover:text-primary-foreground transition-colors`}
           >
             {t('myForms')}
           </Link>
         </nav>
       </div>
       <div className="flex items-center gap-4">
-        {showSearch && (
-        <SearchAndFilters /> )}
+        {showSearch && <SearchAndFilters />}
         <LanguageSwitcher />
         <ThemeSwitcher />
       </div>

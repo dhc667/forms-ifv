@@ -40,22 +40,19 @@ export function SimpleContextMenu({ element, position, onClose }: SimpleContextM
   return (
     <div
       ref={menuRef}
-      className="context-menu fixed bg-background border rounded-lg shadow-lg p-4 z-50 min-w-[300px]"
+      className="context-menu bg-background fixed z-50 min-w-[300px] rounded-lg border p-4 shadow-lg"
       style={{
         left: adjustedPosition.x,
-        top: adjustedPosition.y
+        top: adjustedPosition.y,
       }}
     >
-      <div className="flex justify-between items-center mb-2">
-        <h4 className="font-semibold text-sm">Element Type: {element.type}</h4>
-        <button
-          onClick={onClose}
-          className="text-muted-foreground hover:text-foreground text-sm"
-        >
+      <div className="mb-2 flex items-center justify-between">
+        <h4 className="text-sm font-semibold">Element Type: {element.type}</h4>
+        <button onClick={onClose} className="text-muted-foreground hover:text-foreground text-sm">
           ✕
         </button>
       </div>
-      <pre className="text-xs bg-muted p-2 rounded overflow-auto max-h-60">
+      <pre className="bg-muted max-h-60 overflow-auto rounded p-2 text-xs">
         {JSON.stringify(element, null, 2)}
       </pre>
     </div>

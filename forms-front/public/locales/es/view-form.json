@@ -1,0 +1,25 @@
+{
+  "title": "Ver Formulario",
+  "loading": "Cargando formulario...",
+  "notFound": "Formulario no encontrado",
+  "back": "Volver",
+  "formId": "ID del Formulario",
+  "estado": "Estado",
+  "saving": "Guardando...",
+  "saveSuccess": "Formulario guardado exitosamente",
+  "saveError": "Error al guardar el formulario",
+  "mode": {
+    "view": "Modo Vista",
+    "edit": "Modo Edición"
+  },
+  "estados": {
+    "draft": "Borrador",
+    "pending": "Pendiente de Aprobación",
+    "approved": "Aprobado"
+  },
+  "actions": {
+    "save": "Guardar Cambios",
+    "cancel": "Cancelar",
+    "back": "Volver"
+  }
+}

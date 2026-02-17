@@ -1,5 +1,5 @@
-import type {  Input } from "./inputs";
-import type { LiteralText } from "./literal-text";
+import type { Input, InputValue } from './inputs';
+import type { LiteralText } from './literal-text';
 
 export interface TextElement {
   id: string;
@@ -7,3 +7,4 @@ export interface TextElement {
   components: (Input | LiteralText)[];
 }
 
+export type TextValue = InputValue;

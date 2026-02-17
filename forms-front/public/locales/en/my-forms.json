@@ -8,12 +8,17 @@
     "estado": "Status",
     "fechaEnvio": "Submission Date",
     "revisadoPor": "Reviewed By",
-    "aprobadoPor": "Approved By"
+    "aprobadoPor": "Approved By",
+    "acciones": "Actions"
   },
   "estados": {
     "draft": "Draft",
     "pending": "Pending Approval",
     "approved": "Approved"
+  },
+  "actions": {
+    "view": "View form",
+    "edit": "Edit form"
   },
   "noData": "No forms available",
   "loading": "Loading forms...",

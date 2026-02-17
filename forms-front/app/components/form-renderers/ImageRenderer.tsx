@@ -1,16 +1,22 @@
-import type { ImageElement } from '@/lib/form-builder/types/image';
+import type { ImageElement, ImageValue } from '@/lib/form-builder/types/image';
 import { ImagePlus } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 
 interface ImageRendererProps {
   element: ImageElement;
   onRightClick: (element: ImageElement, event: React.MouseEvent) => void;
-  preview?: boolean;
+  readOnly?: boolean;
+  value?: ImageValue;
 }
 
-export function ImageRenderer({ element, onRightClick, preview = false }: ImageRendererProps) {
+export function ImageRenderer({
+  element,
+  onRightClick,
+  readOnly = false,
+  value,
+}: ImageRendererProps) {
   const handleContextMenu = (e: React.MouseEvent) => {
-    if (preview) return;
+    if (readOnly) return;
     e.preventDefault();
     onRightClick(element, e);
   };
@@ -18,13 +24,17 @@ export function ImageRenderer({ element, onRightClick, preview = false }: ImageR
   return (
     <div
       onContextMenu={handleContextMenu}
-      className={`space-y-2 ${preview ? 'pointer-events-none' : ''}`}
+      className={`space-y-2 ${readOnly ? 'pointer-events-none' : ''}`}
     >
       <div className="mb-2">
-        <Label className="text-current text-base font-medium">{element.title}</Label>
+        <Label className="text-base font-medium text-current">{element.title}</Label>
       </div>
-      <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg h-[150px] flex items-center justify-center">
-        <ImagePlus className="h-12 w-12 text-muted-foreground/50" />
+      <div className="border-muted-foreground/25 flex h-[150px] items-center justify-center overflow-hidden rounded-lg border-2 border-dashed">
+        {value ? (
+          <img src={value} alt={element.title} className="max-h-full max-w-full object-contain" />
+        ) : (
+          <ImagePlus className="text-muted-foreground/50 h-12 w-12" />
+        )}
       </div>
     </div>
   );

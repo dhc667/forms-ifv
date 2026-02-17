@@ -42,11 +42,9 @@ export function SchemasTableView() {
 
   const filteredData = useMemo(() => {
     if (!query.trim()) return rawData;
-    
-    return rawData.filter(row =>
-      Object.values(row).some(value =>
-        value.toLowerCase().includes(query.toLowerCase())
-      )
+
+    return rawData.filter((row) =>
+      Object.values(row).some((value) => value.toLowerCase().includes(query.toLowerCase()))
     );
   }, [rawData, query]);
 
@@ -80,8 +78,8 @@ export function SchemasTableView() {
   };
 
   const getHeaderClassName = (column: SortColumn) => {
-    const baseClass = "px-6 py-3 text-left text-sm cursor-pointer select-none transition-colors";
-    const hoverClass = hoveredColumn === column ? "bg-muted" : "";
+    const baseClass = 'px-6 py-3 text-left text-sm cursor-pointer select-none transition-colors';
+    const hoverClass = hoveredColumn === column ? 'bg-muted' : '';
     return `${baseClass} ${hoverClass}`;
   };
 
@@ -99,18 +97,17 @@ export function SchemasTableView() {
   };
 
   return (
-    <div className="min-h-screen bg-primary p-8">
+    <div className="bg-primary min-h-screen p-8">
       <div className="relative">
-
         {/* Search Results Count */}
         {query && (
-          <div className="mb-4 text-sm text-primary-foreground/80">
+          <div className="text-primary-foreground/80 mb-4 text-sm">
             {t('results', { count: sortedData.length })}
           </div>
         )}
 
         {/* Table Container */}
-        <div className="bg-background rounded-lg overflow-hidden shadow-lg">
+        <div className="bg-background overflow-hidden rounded-lg shadow-lg">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
@@ -185,12 +182,12 @@ export function SchemasTableView() {
               </thead>
               <tbody>
                 {sortedData.map((row, idx) => (
-                  <tr key={idx} className="border-b border-border hover:bg-muted/50">
-                    <td className="px-6 py-3 text-sm text-muted-foreground">{row.id}</td>
-                    <td className="px-6 py-3 text-sm text-foreground">{row.titulo}</td>
-                    <td className="px-6 py-3 text-sm text-muted-foreground">{row.version}</td>
-                    <td className="px-6 py-3 text-sm text-muted-foreground">{row.creadoPor}</td>
-                    <td className="px-6 py-3 text-sm text-muted-foreground">{row.fechaCreacion}</td>
+                  <tr key={idx} className="border-border hover:bg-muted/50 border-b">
+                    <td className="text-muted-foreground px-6 py-3 text-sm">{row.id}</td>
+                    <td className="text-foreground px-6 py-3 text-sm">{row.titulo}</td>
+                    <td className="text-muted-foreground px-6 py-3 text-sm">{row.version}</td>
+                    <td className="text-muted-foreground px-6 py-3 text-sm">{row.creadoPor}</td>
+                    <td className="text-muted-foreground px-6 py-3 text-sm">{row.fechaCreacion}</td>
                     <td className="px-6 py-3 text-sm">
                       <Badge variant={getEstadoBadgeVariant(row.estado)}>
                         {t(`estados.${row.estado}`)}

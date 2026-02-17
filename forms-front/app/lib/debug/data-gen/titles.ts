@@ -33,7 +33,7 @@ function numberToLetters(num: number): string {
 // Seed data for title generation
 export const TITLE_SEEDS = {
   actionWords: ACTION_WORDS,
-  productTypes: PRODUCT_TYPES
+  productTypes: PRODUCT_TYPES,
 } as const;
 
 // Helper function for testing alphabetized conversion

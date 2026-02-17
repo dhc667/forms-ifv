@@ -1,31 +1,32 @@
-import type { Input } from '@/lib/form-builder/types/inputs';
+import type { Input, InputValue } from '@/lib/form-builder/types/inputs';
 import { InlineInput } from '@/components/ui/inline-input';
 import { TextAreaInput } from '@/components/ui/textarea-input';
 
 interface InputRendererProps {
   input: Input;
   onRightClick: (input: Input, event: React.MouseEvent) => void;
-  preview?: boolean;
+  readOnly?: boolean;
+  value?: InputValue;
 }
 
-export function InputRenderer({ input, onRightClick, preview = false }: InputRendererProps) {
+export function InputRenderer({
+  input,
+  onRightClick,
+  readOnly = false,
+  value,
+}: InputRendererProps) {
   const inlineInputProps = {
     id: input.id,
     required: input.required,
-    onContextMenu: preview ? undefined : (e: React.MouseEvent) => onRightClick(input, e),
-    disabled: preview, // Disable in preview mode
-    className: preview ? 'pointer-events-none' : undefined,
+    onContextMenu: readOnly ? undefined : (e: React.MouseEvent) => onRightClick(input, e),
+    disabled: readOnly, // Disable in read-only mode
+    className: readOnly ? 'pointer-events-none' : undefined,
+    defaultValue: value,
   };
 
   switch (input.type) {
     case 'text-input':
-      return (
-        <InlineInput
-          {...inlineInputProps}
-          type="text"
-          placeholder={input.placeholder}
-        />
-      );
+      return <InlineInput {...inlineInputProps} type="text" placeholder={input.placeholder} />;
 
     case 'number-input':
       return (
@@ -54,42 +55,28 @@ export function InputRenderer({ input, onRightClick, preview = false }: InputRen
         <TextAreaInput
           id={input.id}
           required={input.required}
-          onContextMenu={preview ? undefined : (e: React.MouseEvent) => onRightClick(input, e)}
-          disabled={preview}
-          className={preview ? 'pointer-events-none' : undefined}
+          onContextMenu={readOnly ? undefined : (e: React.MouseEvent) => onRightClick(input, e)}
+          disabled={readOnly}
+          className={readOnly ? 'pointer-events-none' : undefined}
           placeholder={input.placeholder}
           rows={input.validation?.rows || 4}
+          defaultValue={value}
         />
       );
 
     case 'reference-input':
       return (
-        <InlineInput
-          {...inlineInputProps}
-          type="text"
-          placeholder="Reference input"
-          disabled
-        />
+        <InlineInput {...inlineInputProps} type="text" placeholder="Reference input" disabled />
       );
 
     case 'selection-input':
       return (
-        <InlineInput
-          {...inlineInputProps}
-          type="text"
-          placeholder="Selection input"
-          disabled
-        />
+        <InlineInput {...inlineInputProps} type="text" placeholder="Selection input" disabled />
       );
 
     default:
       return (
-        <InlineInput
-          {...inlineInputProps}
-          type="text"
-          placeholder="Unknown input type"
-          disabled
-        />
+        <InlineInput {...inlineInputProps} type="text" placeholder="Unknown input type" disabled />
       );
   }
 }

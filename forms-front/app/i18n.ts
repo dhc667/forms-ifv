@@ -26,7 +26,16 @@ i18n
       loadPath: '/forms-ifv/locales/{{lng}}/{{ns}}.json',
     },
 
-    ns: ['common', 'navigation', 'forms', 'validation', 'schemas', 'my-forms', 'create-schema', 'form-builder'],
+    ns: [
+      'common',
+      'navigation',
+      'forms',
+      'validation',
+      'schemas',
+      'my-forms',
+      'create-schema',
+      'form-builder',
+    ],
   });
 
 export default i18n;

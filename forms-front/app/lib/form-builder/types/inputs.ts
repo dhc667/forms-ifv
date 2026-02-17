@@ -11,7 +11,7 @@ export type TextInput = InputBase & {
     maxLength?: number;
     pattern?: string;
   };
-}
+};
 
 export type DateInput = InputBase & {
   type: 'date';
@@ -19,7 +19,7 @@ export type DateInput = InputBase & {
     min?: Date;
     max?: Date;
   };
-}
+};
 
 export type NumberInput = InputBase & {
   type: 'number-input';
@@ -30,11 +30,11 @@ export type NumberInput = InputBase & {
     step?: number;
     precision?: number;
   };
-}
+};
 
 export type ReferenceInput = InputBase & {
   type: 'reference-input';
-}
+};
 
 export interface SelectionInputOption {
   id: string;
@@ -45,7 +45,7 @@ export type SelectionInput = InputBase & {
   id: string;
   type: 'selection-input';
   required?: boolean;
-}
+};
 
 export type TextAreaInput = InputBase & {
   type: 'textarea-input';
@@ -55,6 +55,14 @@ export type TextAreaInput = InputBase & {
     maxLength?: number;
     rows?: number;
   };
-}
+};
 
-export type Input = TextInput | DateInput | NumberInput | TextAreaInput | ReferenceInput | SelectionInput;
+export type Input =
+  | TextInput
+  | DateInput
+  | NumberInput
+  | TextAreaInput
+  | ReferenceInput
+  | SelectionInput;
+
+export type InputValue = string;

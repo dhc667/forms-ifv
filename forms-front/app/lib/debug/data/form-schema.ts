@@ -26,17 +26,17 @@ export const exampleFormSchema: FormSchema = {
               id: generateUUID(),
               type: 'text-input',
               placeholder: 'Nombre completo',
-              required: true
+              required: true,
             } as TextInput,
             createLiteralText(' y su fecha de nacimiento '),
             {
               id: generateUUID(),
               type: 'date',
-              required: true
-            } as DateInput
-          ]
-        } as TextElement
-      ]
+              required: true,
+            } as DateInput,
+          ],
+        } as TextElement,
+      ],
     },
 
     // Number Input with Text
@@ -52,12 +52,12 @@ export const exampleFormSchema: FormSchema = {
               id: generateUUID(),
               type: 'number-input',
               placeholder: 'Edad',
-              validation: { min: 18, max: 120 }
+              validation: { min: 18, max: 120 },
             } as NumberInput,
-            createLiteralText(' años.')
-          ]
-        } as TextElement
-      ]
+            createLiteralText(' años.'),
+          ],
+        } as TextElement,
+      ],
     },
 
     // Selection Element - Single Choice
@@ -67,14 +67,14 @@ export const exampleFormSchema: FormSchema = {
         {
           id: generateUUID(),
           type: 'single-selection',
-          title: "Sexo",
+          title: 'Sexo',
           options: [
             { id: generateUUID(), title: 'Masculino' },
             { id: generateUUID(), title: 'Femenino' },
-            { id: generateUUID(), title: 'Otro' }
-          ]
-        } as SingleSelection
-      ]
+            { id: generateUUID(), title: 'Otro' },
+          ],
+        } as SingleSelection,
+      ],
     },
 
     // Selection Element - Multiple Choice
@@ -84,15 +84,15 @@ export const exampleFormSchema: FormSchema = {
         {
           id: generateUUID(),
           type: 'multiple-selection',
-          title: "Idiomas que habla",
+          title: 'Idiomas que habla',
           options: [
             { id: generateUUID(), title: 'Español' },
             { id: generateUUID(), title: 'Inglés' },
             { id: generateUUID(), title: 'Francés' },
-            { id: generateUUID(), title: 'Alemán' }
-          ]
-        } as MultipleSelection
-      ]
+            { id: generateUUID(), title: 'Alemán' },
+          ],
+        } as MultipleSelection,
+      ],
     },
 
     // Table Element
@@ -104,52 +104,49 @@ export const exampleFormSchema: FormSchema = {
           type: 'table',
           title: 'Información de Contacto',
           rows: [
-            [
-              createLiteralText('Tipo'),
-              createLiteralText('Valor'),
-            ],
+            [createLiteralText('Tipo'), createLiteralText('Valor')],
             [
               createLiteralText('Teléfono'),
               {
                 id: generateUUID(),
                 type: 'text-input',
-                placeholder: 'Número'
-              } as TextInput
+                placeholder: 'Número',
+              } as TextInput,
             ],
             [
               createLiteralText('Email'),
               {
                 id: generateUUID(),
                 type: 'text-input',
-                placeholder: 'correo@ejemplo.com'
-              } as TextInput
+                placeholder: 'correo@ejemplo.com',
+              } as TextInput,
             ],
             [
               createLiteralText('Número'),
               {
                 id: generateUUID(),
                 type: 'number-input',
-                placeholder: '0'
-              } as NumberInput
+                placeholder: '0',
+              } as NumberInput,
             ],
             [
               createLiteralText('Fecha'),
               {
                 id: generateUUID(),
-                type: 'date'
-              } as DateInput
+                type: 'date',
+              } as DateInput,
             ],
             [
               createLiteralText('Área de Texto'),
               {
                 id: generateUUID(),
                 type: 'textarea-input',
-                placeholder: 'Ingrese texto más largo aquí...'
-              } as TextAreaInput
-            ]
-          ]
-        } as TableElement
-      ]
+                placeholder: 'Ingrese texto más largo aquí...',
+              } as TextAreaInput,
+            ],
+          ],
+        } as TableElement,
+      ],
     },
 
     // Image Element
@@ -159,9 +156,9 @@ export const exampleFormSchema: FormSchema = {
         {
           id: generateUUID(),
           type: 'image',
-          title: 'Inserte una imagen'
-        } as ImageElement
-      ]
-    }
-  ]
+          title: 'Inserte una imagen',
+        } as ImageElement,
+      ],
+    },
+  ],
 };

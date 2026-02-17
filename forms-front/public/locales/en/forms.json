@@ -7,7 +7,11 @@
     "elaborado": "Created by",
     "revisado": "Reviewed by",
     "aprobado": "Approved by",
-    "fecha": "Date"
+    "fecha": "Date",
+    "acciones": "Actions"
+  },
+  "actions": {
+    "view": "View form"
   },
   "noData": "No forms available",
   "loading": "Loading forms...",

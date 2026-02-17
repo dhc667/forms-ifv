@@ -20,3 +20,4 @@ export type MultipleSelection = SelectionBase & {
 
 export type SelectionElement = SingleSelection | MultipleSelection;
 
+export type SelectionValue = string | string[];

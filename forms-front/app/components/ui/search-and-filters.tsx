@@ -10,21 +10,21 @@ export function SearchAndFilters({ showFilters = true }: { showFilters?: boolean
 
   return (
     <div className="flex items-center gap-2">
-      <div className="bg-primary-foreground/20 rounded px-3 py-1.5 flex items-center gap-2 w-48">
+      <div className="bg-primary-foreground/20 flex w-48 items-center gap-2 rounded px-3 py-1.5">
         <Search size={18} className="text-primary-foreground" />
         <Input
           type="text"
           placeholder={t('searchPlaceholder')}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="bg-transparent border-none outline-none text-primary-foreground placeholder-primary-foreground/60 w-full h-auto p-0 focus-visible:ring-0"
+          className="text-primary-foreground placeholder-primary-foreground/60 h-auto w-full border-none bg-transparent p-0 outline-none focus-visible:ring-0"
         />
         {query && (
           <Button
             variant="ghost"
             size="sm"
             onClick={clearSearch}
-            className="h-4 w-4 p-0 hover:bg-primary-foreground/20 text-primary-foreground/60 hover:text-primary-foreground"
+            className="hover:bg-primary-foreground/20 text-primary-foreground/60 hover:text-primary-foreground h-4 w-4 p-0"
           >
             <X size={14} />
           </Button>

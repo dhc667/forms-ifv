@@ -3,15 +3,19 @@ import type { LiteralText } from '@/lib/form-builder/types/literal-text';
 interface LiteralTextRendererProps {
   text: LiteralText;
   onRightClick: (text: LiteralText, event: React.MouseEvent) => void;
-  preview?: boolean;
+  readOnly?: boolean;
 }
 
-export function LiteralTextRenderer({ text, onRightClick, preview = false }: LiteralTextRendererProps) {
-  const handleClick = preview ? undefined : (e: React.MouseEvent) => onRightClick(text, e);
+export function LiteralTextRenderer({
+  text,
+  onRightClick,
+  readOnly = false,
+}: LiteralTextRendererProps) {
+  const handleClick = readOnly ? undefined : (e: React.MouseEvent) => onRightClick(text, e);
 
   return (
     <span
-      className={preview ? 'inline' : 'cursor-pointer hover:bg-muted/50 rounded px-1 inline'}
+      className={readOnly ? 'inline' : 'hover:bg-muted/50 inline cursor-pointer rounded px-1'}
       onContextMenu={handleClick}
     >
       {text.content}

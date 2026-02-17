@@ -21,7 +21,13 @@ interface CollapsibleGroupProps {
   onDragStart: (component: ComponentItem) => void;
 }
 
-function CollapsibleGroup({ title, icon, items, defaultOpen = false, onDragStart }: CollapsibleGroupProps) {
+function CollapsibleGroup({
+  title,
+  icon,
+  items,
+  defaultOpen = false,
+  onDragStart,
+}: CollapsibleGroupProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
@@ -29,20 +35,22 @@ function CollapsibleGroup({ title, icon, items, defaultOpen = false, onDragStart
       <CollapsibleTrigger asChild>
         <Button
           variant="ghost"
-          className="w-full justify-between p-3 h-auto font-medium hover:bg-muted/50 text-primary-foreground"
+          className="hover:bg-muted/50 text-primary-foreground h-auto w-full justify-between p-3 font-medium"
         >
           <div className="flex items-center gap-2">
             {icon}
             <span>{title}</span>
           </div>
-          <ChevronRight className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`} />
+          <ChevronRight
+            className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}
+          />
         </Button>
       </CollapsibleTrigger>
       <CollapsibleContent className="space-y-2 px-3 pb-3">
         {items.map((item) => (
           <div
             key={item.id}
-            className="border border-dashed border-border/30 rounded p-2 cursor-move hover:bg-muted/20 transition-all bg-background"
+            className="border-border/30 hover:bg-muted/20 bg-background cursor-move rounded border border-dashed p-2 transition-all"
             draggable
             onDragStart={() => onDragStart(item)}
           >
@@ -67,49 +75,49 @@ export function Sidebar() {
       icon: <Type className="h-4 w-4" />,
       defaultOpen: true,
       items: sidebarElementFactories
-        .filter(el => el.type === 'text')
-        .map(el => ({
+        .filter((el) => el.type === 'text')
+        .map((el) => ({
           id: el.id,
           preview: <PreviewRenderer element={el.createElement(t)} />,
-          schema: el.createElement(t)
-        }))
+          schema: el.createElement(t),
+        })),
     },
     {
       title: t('tables'),
       icon: <Table className="h-4 w-4" />,
       defaultOpen: false,
       items: sidebarElementFactories
-        .filter(el => el.type === 'table')
-        .map(el => ({
+        .filter((el) => el.type === 'table')
+        .map((el) => ({
           id: el.id,
           preview: <PreviewRenderer element={el.createElement(t)} />,
-          schema: el.createElement(t)
-        }))
+          schema: el.createElement(t),
+        })),
     },
     {
       title: t('selection'),
       icon: <List className="h-4 w-4" />,
       defaultOpen: false,
       items: sidebarElementFactories
-        .filter(el => el.type === 'selection')
-        .map(el => ({
+        .filter((el) => el.type === 'selection')
+        .map((el) => ({
           id: el.id,
           preview: <PreviewRenderer element={el.createElement(t)} />,
-          schema: el.createElement(t)
-        }))
+          schema: el.createElement(t),
+        })),
     },
     {
       title: t('images'),
       icon: <Image className="h-4 w-4" />,
       defaultOpen: false,
       items: sidebarElementFactories
-        .filter(el => el.type === 'image')
-        .map(el => ({
+        .filter((el) => el.type === 'image')
+        .map((el) => ({
           id: el.id,
           preview: <PreviewRenderer element={el.createElement(t)} />,
-          schema: el.createElement(t)
-        }))
-    }
+          schema: el.createElement(t),
+        })),
+    },
   ];
 
   const handleDragStart = (component: ComponentItem) => {
@@ -118,13 +126,13 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="w-80 bg-primary-light min-h-screen flex flex-col">
-      <div className="p-4 border-b border-primary-dark">
-        <h2 className="font-semibold text-lg text-primary-foreground">{t('components')}</h2>
+    <aside className="bg-primary-light flex min-h-screen w-80 flex-col">
+      <div className="border-primary-dark border-b p-4">
+        <h2 className="text-primary-foreground text-lg font-semibold">{t('components')}</h2>
       </div>
 
       <div className="flex-1 overflow-y-auto">
-        <div className="divide-y divide-border">
+        <div className="divide-border divide-y">
           {componentGroups.map((group) => (
             <CollapsibleGroup
               key={group.title}

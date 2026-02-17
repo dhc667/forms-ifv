@@ -8,12 +8,17 @@
     "estado": "Estado",
     "fechaEnvio": "Fecha de Envío",
     "revisadoPor": "Revisado Por",
-    "aprobadoPor": "Aprobado Por"
+    "aprobadoPor": "Aprobado Por",
+    "acciones": "Acciones"
   },
   "estados": {
     "draft": "Borrador",
     "pending": "Pendiente de Aprobación",
     "approved": "Aprobado"
+  },
+  "actions": {
+    "view": "Ver formulario",
+    "edit": "Editar formulario"
   },
   "noData": "No hay formularios disponibles",
   "loading": "Cargando formularios...",

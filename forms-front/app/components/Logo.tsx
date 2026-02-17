@@ -6,10 +6,10 @@ export const LOGO_SVG = `<svg width="25" height="26" viewBox="0 0 25 26" fill="n
 
 export function Logo(props: SVGProps<SVGSVGElement>) {
   return (
-    <div 
+    <div
       className={props.className}
       style={props.style}
-      dangerouslySetInnerHTML={{ __html: LOGO_SVG }} 
+      dangerouslySetInnerHTML={{ __html: LOGO_SVG }}
     />
   );
 }

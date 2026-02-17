@@ -19,10 +19,10 @@ export function QuestionCard({
   onAddQuestion,
 }: QuestionCardProps) {
   return (
-    <div className="border-2 border-dashed border-primary-light rounded-lg p-6 bg-background relative group">
+    <div className="border-primary-light bg-background group relative rounded-lg border-2 border-dashed p-6">
       <button
         onClick={onDelete}
-        className="absolute top-4 right-4 text-muted-foreground hover:text-destructive transition-colors opacity-0 group-hover:opacity-100"
+        className="text-muted-foreground hover:text-destructive absolute top-4 right-4 opacity-0 transition-colors group-hover:opacity-100"
       >
         <Trash2 size={18} />
       </button>
@@ -53,7 +53,10 @@ export function QuestionCard({
         </div>
       </div>
 
-      <button onClick={() => onAddQuestion(questionNumber)} className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-primary-light text-primary-foreground rounded-full p-1.5 hover:bg-primary-dark transition-colors">
+      <button
+        onClick={() => onAddQuestion(questionNumber)}
+        className="bg-primary-light text-primary-foreground hover:bg-primary-dark absolute -bottom-3 left-1/2 -translate-x-1/2 rounded-full p-1.5 transition-colors"
+      >
         <Plus size={18} />
       </button>
     </div>

@@ -35,17 +35,17 @@ export default function CreateSchemaPage() {
   }, [contextMenu]);
 
   const deleteQuestion = (questionId: string) => {
-    setFormSchema(prev => ({
+    setFormSchema((prev) => ({
       ...prev,
-      questions: prev.questions.filter(q => q.id !== questionId)
+      questions: prev.questions.filter((q) => q.id !== questionId),
     }));
   };
 
   const addQuestion = (index?: number) => {
-    setFormSchema(prev => {
+    setFormSchema((prev) => {
       const newQuestion = {
         id: crypto.randomUUID(),
-        components: []
+        components: [],
       };
 
       const newQuestions = [...prev.questions];
@@ -57,7 +57,7 @@ export default function CreateSchemaPage() {
 
       return {
         ...prev,
-        questions: newQuestions
+        questions: newQuestions,
       };
     });
   };
@@ -66,7 +66,7 @@ export default function CreateSchemaPage() {
     event.preventDefault();
     setContextMenu({
       element,
-      position: { x: event.clientX, y: event.clientY }
+      position: { x: event.clientX, y: event.clientY },
     });
   };
 
@@ -76,14 +76,11 @@ export default function CreateSchemaPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="bg-background min-h-screen">
       <Header />
 
       {/* Floating Save Button */}
-      <Button
-        onClick={handleSave}
-        className="fixed top-20 right-8 z-50 shadow-lg"
-      >
+      <Button onClick={handleSave} className="fixed top-20 right-8 z-50 shadow-lg">
         <Save className="mr-2 h-4 w-4" />
         {t('save')}
       </Button>
@@ -92,7 +89,7 @@ export default function CreateSchemaPage() {
         <Sidebar />
 
         <main className="flex-1 p-8">
-          <div className="max-w-4xl mx-auto space-y-6">
+          <div className="mx-auto max-w-4xl space-y-6">
             <div className="mb-6">
               <h1 className="text-2xl font-bold">{formSchema.title}</h1>
               <p className="text-muted-foreground">ID: {formSchema.id}</p>
@@ -112,9 +109,9 @@ export default function CreateSchemaPage() {
             <Button
               onClick={() => addQuestion()}
               variant="outline"
-              className="w-full border-dashed border-primary-light bg-primary text-primary-foreground hover:bg-primary/5"
+              className="border-primary-light bg-primary text-primary-foreground hover:bg-primary/5 w-full border-dashed"
             >
-              <span className="text-2xl mr-2">+</span>
+              <span className="mr-2 text-2xl">+</span>
               <span>{t('addQuestion')}</span>
             </Button>
           </div>

@@ -22,15 +22,15 @@ export const createSidebarElements = (t: any): SidebarElementFactory[] => [
         {
           id: 'text-input-label',
           type: 'embedded-text',
-          content: t('sidebarLabels.textInput', { ns: 'form-builder' })
+          content: t('sidebarLabels.textInput', { ns: 'form-builder' }),
         },
         {
           id: 'text-input-field',
           type: 'text-input',
-          placeholder: t('placeholders.textInput', { ns: 'form-builder' })
-        }
-      ]
-    })
+          placeholder: t('placeholders.textInput', { ns: 'form-builder' }),
+        },
+      ],
+    }),
   },
   {
     id: 'number-input',
@@ -42,15 +42,15 @@ export const createSidebarElements = (t: any): SidebarElementFactory[] => [
         {
           id: 'number-input-label',
           type: 'embedded-text',
-          content: t('sidebarLabels.numberInput', { ns: 'form-builder' })
+          content: t('sidebarLabels.numberInput', { ns: 'form-builder' }),
         },
         {
           id: 'number-input-field',
           type: 'number-input',
-          placeholder: t('placeholders.numberInput', { ns: 'form-builder' })
-        }
-      ]
-    })
+          placeholder: t('placeholders.numberInput', { ns: 'form-builder' }),
+        },
+      ],
+    }),
   },
   {
     id: 'date-input',
@@ -62,14 +62,14 @@ export const createSidebarElements = (t: any): SidebarElementFactory[] => [
         {
           id: 'date-input-label',
           type: 'embedded-text',
-          content: t('sidebarLabels.dateInput', { ns: 'form-builder' })
+          content: t('sidebarLabels.dateInput', { ns: 'form-builder' }),
         },
         {
           id: 'date-input-field',
-          type: 'date'
-        }
-      ]
-    })
+          type: 'date',
+        },
+      ],
+    }),
   },
   {
     id: 'textarea-input',
@@ -81,16 +81,16 @@ export const createSidebarElements = (t: any): SidebarElementFactory[] => [
         {
           id: 'textarea-input-label',
           type: 'embedded-text',
-          content: t('sidebarLabels.textareaInput', { ns: 'form-builder' })
+          content: t('sidebarLabels.textareaInput', { ns: 'form-builder' }),
         },
         {
           id: 'textarea-input-field',
           type: 'textarea-input',
           placeholder: t('placeholders.textareaInput', { ns: 'form-builder' }),
-          validation: { rows: 3 }
-        }
-      ]
-    })
+          validation: { rows: 3 },
+        },
+      ],
+    }),
   },
   // Table Components
   {
@@ -105,105 +105,117 @@ export const createSidebarElements = (t: any): SidebarElementFactory[] => [
           {
             id: 'table-header-1',
             type: 'embedded-text',
-            content: t('table.texts', { ns: 'form-builder' })
+            content: t('table.texts', { ns: 'form-builder' }),
           },
           {
             id: 'table-header-2',
             type: 'embedded-text',
-            content: t('table.numbers', { ns: 'form-builder' })
-          }
+            content: t('table.numbers', { ns: 'form-builder' }),
+          },
         ],
         // Data row 1
         [
           {
             id: 'table-data-1',
             type: 'text-input',
-            placeholder: t('placeholders.textInput', { ns: 'form-builder' })
+            placeholder: t('placeholders.textInput', { ns: 'form-builder' }),
           },
           {
             id: 'table-data-2',
             type: 'number-input',
-            placeholder: t('placeholders.numberInput', { ns: 'form-builder' })
-          }
+            placeholder: t('placeholders.numberInput', { ns: 'form-builder' }),
+          },
         ],
         // Data row 2
         [
           {
             id: 'table-data-3',
             type: 'text-input',
-            placeholder: t('placeholders.textInput', { ns: 'form-builder' })
+            placeholder: t('placeholders.textInput', { ns: 'form-builder' }),
           },
           {
             id: 'table-data-4',
             type: 'number-input',
-            placeholder: t('placeholders.numberInput', { ns: 'form-builder' })
-          }
-        ]
-      ]
-    })
+            placeholder: t('placeholders.numberInput', { ns: 'form-builder' }),
+          },
+        ],
+      ],
+    }),
   },
   // Selection Components
   {
     id: 'radio-group-with-title',
     type: 'selection',
     createElement: (): SelectionElement => {
-      const radioOptions = t('options.radio', { ns: 'form-builder', returnObjects: true }) as string[];
+      const radioOptions = t('options.radio', {
+        ns: 'form-builder',
+        returnObjects: true,
+      }) as string[];
       return {
         id: 'preview-radio-group-with-title',
         type: 'single-selection',
         title: t('sidebarLabels.radioGroupTitle', { ns: 'form-builder' }),
         options: radioOptions.map((option, index) => ({
           id: `radio-option-${index + 1}`,
-          title: option
-        }))
+          title: option,
+        })),
       };
-    }
+    },
   },
   {
     id: 'radio-group-no-title',
     type: 'selection',
     createElement: (): SelectionElement => {
-      const radioOptions = t('options.radio', { ns: 'form-builder', returnObjects: true }) as string[];
+      const radioOptions = t('options.radio', {
+        ns: 'form-builder',
+        returnObjects: true,
+      }) as string[];
       return {
         id: 'preview-radio-group-no-title',
         type: 'single-selection',
         options: radioOptions.map((option, index) => ({
           id: `radio-option-${index + 1}`,
-          title: option
-        }))
+          title: option,
+        })),
       };
-    }
+    },
   },
   {
     id: 'checkbox-group-with-title',
     type: 'selection',
     createElement: (): SelectionElement => {
-      const checkboxOptions = t('options.checkbox', { ns: 'form-builder', returnObjects: true }) as string[];
+      const checkboxOptions = t('options.checkbox', {
+        ns: 'form-builder',
+        returnObjects: true,
+      }) as string[];
       return {
         id: 'preview-checkbox-group-with-title',
         type: 'multiple-selection',
         title: t('sidebarLabels.checkboxGroupTitle', { ns: 'form-builder' }),
         options: checkboxOptions.map((option, index) => ({
           id: `checkbox-option-${index + 1}`,
-          title: option
-        }))
+          title: option,
+        })),
       };
-    }
+    },
   },
   {
     id: 'checkbox-group-no-title',
     type: 'selection',
     createElement: (): SelectionElement => {
-      const checkboxOptions = t('options.checkbox', { ns: 'form-builder', returnObjects: true }) as string[];
+      const checkboxOptions = t('options.checkbox', {
+        ns: 'form-builder',
+        returnObjects: true,
+      }) as string[];
       return {
         id: 'preview-checkbox-group-no-title',
         type: 'multiple-selection',
         options: checkboxOptions.map((option, index) => ({
           id: `checkbox-option-${index + 1}`,
-          title: option
-        }))
+          title: option,
+        })),
       };
-    }
+    },
   },
   // Image Components
   {
@@ -212,7 +224,7 @@ export const createSidebarElements = (t: any): SidebarElementFactory[] => [
     createElement: (): ImageElement => ({
       id: 'preview-image-upload',
       type: 'image',
-      title: t('sidebarLabels.imageUpload', { ns: 'form-builder' })
-    })
-  }
+      title: t('sidebarLabels.imageUpload', { ns: 'form-builder' }),
+    }),
+  },
 ];

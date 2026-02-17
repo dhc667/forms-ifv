@@ -13,7 +13,7 @@ export function LanguageSwitcher() {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
-  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
+  const currentLanguage = languages.find((lang) => lang.code === i18n.language) || languages[0];
 
   const handleLanguageChange = (langCode: string) => {
     i18n.changeLanguage(langCode);
@@ -31,7 +31,7 @@ export function LanguageSwitcher() {
       <Button
         variant="ghost"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 bg-background border border-border rounded hover:bg-muted/50"
+        className="bg-background border-border hover:bg-muted/50 flex items-center gap-2 rounded border px-3 py-2"
         aria-label="Select language"
       >
         <span className="text-lg">{currentLanguage.flag}</span>
@@ -40,18 +40,15 @@ export function LanguageSwitcher() {
 
       {isOpen && (
         <>
-          <div
-            className="fixed inset-0 z-10"
-            onClick={() => setIsOpen(false)}
-          />
-          <div className="absolute top-full right-0 z-20 mt-1 bg-background border border-border rounded shadow-lg py-1 min-w-32">
+          <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
+          <div className="bg-background border-border absolute top-full right-0 z-60 mt-1 min-w-32 rounded border py-1 shadow-lg">
             {languages.map((language) => (
               <button
                 key={language.code}
                 onClick={() => handleLanguageChange(language.code)}
                 className={cn(
-                  "w-full flex items-center gap-3 px-3 py-2 text-sm hover:bg-muted/50 transition-colors",
-                  i18n.language === language.code && "bg-primary/10 text-primary"
+                  'hover:bg-muted/50 flex w-full items-center gap-3 px-3 py-2 text-sm transition-colors',
+                  i18n.language === language.code && 'bg-primary/10 text-primary'
                 )}
               >
                 <span className="text-lg">{language.flag}</span>

@@ -1,8 +1,11 @@
 import { useState, useMemo } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Eye } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router';
 import { useSearch } from '@/context/SearchContext';
 import { generateFormsData } from '@/lib/debug/data-gen';
+import { Button } from '@/components/ui/button';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 // Generate data once outside the component to avoid regeneration on every render
 const GENERATED_DATA = generateFormsData(35);
@@ -41,11 +44,9 @@ export function TableView() {
 
   const filteredData = useMemo(() => {
     if (!query.trim()) return rawData;
-    
-    return rawData.filter(row =>
-      Object.values(row).some(value =>
-        value.toLowerCase().includes(query.toLowerCase())
-      )
+
+    return rawData.filter((row) =>
+      Object.values(row).some((value) => value.toLowerCase().includes(query.toLowerCase()))
     );
   }, [rawData, query]);
 
@@ -79,112 +80,128 @@ export function TableView() {
   };
 
   const getHeaderClassName = (column: SortColumn) => {
-    const baseClass = "px-6 py-3 text-left text-sm cursor-pointer select-none transition-colors";
-    const hoverClass = hoveredColumn === column ? "bg-muted" : "";
+    const baseClass = 'px-6 py-3 text-left text-sm cursor-pointer select-none transition-colors';
+    const hoverClass = hoveredColumn === column ? 'bg-muted' : '';
     return `${baseClass} ${hoverClass}`;
   };
 
   return (
-    <div className="min-h-screen bg-primary p-8">
-      <div className="relative">
+    <TooltipProvider>
+      <div className="bg-primary min-h-screen p-8">
+        <div className="relative">
+          {/* Search Results Count */}
+          {query && (
+            <div className="text-primary-foreground/80 mb-4 text-sm">
+              {t('results', { count: sortedData.length })}
+            </div>
+          )}
 
-        {/* Search Results Count */}
-        {query && (
-          <div className="mb-4 text-sm text-primary-foreground/80">
-            {t('results', { count: sortedData.length })}
-          </div>
-        )}
-
-        {/* Table Container */}
-        <div className="bg-background rounded-lg overflow-hidden shadow-lg">
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-muted text-muted-foreground">
-                  <th
-                    className={getHeaderClassName('id')}
-                    onClick={() => handleSort('id')}
-                    onMouseEnter={() => setHoveredColumn('id')}
-                    onMouseLeave={() => setHoveredColumn(null)}
-                  >
-                    <div className="flex items-center">
-                      <span>{t('table.id')}</span>
-                      <SortArrow column="id" />
-                    </div>
-                  </th>
-                  <th
-                    className={getHeaderClassName('titulo')}
-                    onClick={() => handleSort('titulo')}
-                    onMouseEnter={() => setHoveredColumn('titulo')}
-                    onMouseLeave={() => setHoveredColumn(null)}
-                  >
-                    <div className="flex items-center">
-                      <span>{t('table.titulo')}</span>
-                      <SortArrow column="titulo" />
-                    </div>
-                  </th>
-                  <th
-                    className={getHeaderClassName('elaborado')}
-                    onClick={() => handleSort('elaborado')}
-                    onMouseEnter={() => setHoveredColumn('elaborado')}
-                    onMouseLeave={() => setHoveredColumn(null)}
-                  >
-                    <div className="flex items-center">
-                      <span>{t('table.elaborado')}</span>
-                      <SortArrow column="elaborado" />
-                    </div>
-                  </th>
-                  <th
-                    className={getHeaderClassName('revisado')}
-                    onClick={() => handleSort('revisado')}
-                    onMouseEnter={() => setHoveredColumn('revisado')}
-                    onMouseLeave={() => setHoveredColumn(null)}
-                  >
-                    <div className="flex items-center">
-                      <span>{t('table.revisado')}</span>
-                      <SortArrow column="revisado" />
-                    </div>
-                  </th>
-                  <th
-                    className={getHeaderClassName('aprobado')}
-                    onClick={() => handleSort('aprobado')}
-                    onMouseEnter={() => setHoveredColumn('aprobado')}
-                    onMouseLeave={() => setHoveredColumn(null)}
-                  >
-                    <div className="flex items-center">
-                      <span>{t('table.aprobado')}</span>
-                      <SortArrow column="aprobado" />
-                    </div>
-                  </th>
-                  <th
-                    className={getHeaderClassName('fecha')}
-                    onClick={() => handleSort('fecha')}
-                    onMouseEnter={() => setHoveredColumn('fecha')}
-                    onMouseLeave={() => setHoveredColumn(null)}
-                  >
-                    <div className="flex items-center">
-                      <span>{t('table.fecha')}</span>
-                      <SortArrow column="fecha" />
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {sortedData.map((row, idx) => (
-                  <tr key={idx} className="border-b border-border hover:bg-muted/50">
-                    <td className="px-6 py-3 text-sm text-muted-foreground">{row.id}</td>
-                    <td className="px-6 py-3 text-sm text-foreground">{row.titulo}</td>
-                    <td className="px-6 py-3 text-sm text-muted-foreground">{row.elaborado}</td>
-                    <td className="px-6 py-3 text-sm text-muted-foreground">{row.revisado}</td>
-                    <td className="px-6 py-3 text-sm text-muted-foreground">{row.aprobado}</td>
-                    <td className="px-6 py-3 text-sm text-muted-foreground">{row.fecha}</td>
+          {/* Table Container */}
+          <div className="bg-background overflow-hidden rounded-lg shadow-lg">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-muted text-muted-foreground">
+                    <th
+                      className={getHeaderClassName('id')}
+                      onClick={() => handleSort('id')}
+                      onMouseEnter={() => setHoveredColumn('id')}
+                      onMouseLeave={() => setHoveredColumn(null)}
+                    >
+                      <div className="flex items-center">
+                        <span>{t('table.id')}</span>
+                        <SortArrow column="id" />
+                      </div>
+                    </th>
+                    <th
+                      className={getHeaderClassName('titulo')}
+                      onClick={() => handleSort('titulo')}
+                      onMouseEnter={() => setHoveredColumn('titulo')}
+                      onMouseLeave={() => setHoveredColumn(null)}
+                    >
+                      <div className="flex items-center">
+                        <span>{t('table.titulo')}</span>
+                        <SortArrow column="titulo" />
+                      </div>
+                    </th>
+                    <th
+                      className={getHeaderClassName('elaborado')}
+                      onClick={() => handleSort('elaborado')}
+                      onMouseEnter={() => setHoveredColumn('elaborado')}
+                      onMouseLeave={() => setHoveredColumn(null)}
+                    >
+                      <div className="flex items-center">
+                        <span>{t('table.elaborado')}</span>
+                        <SortArrow column="elaborado" />
+                      </div>
+                    </th>
+                    <th
+                      className={getHeaderClassName('revisado')}
+                      onClick={() => handleSort('revisado')}
+                      onMouseEnter={() => setHoveredColumn('revisado')}
+                      onMouseLeave={() => setHoveredColumn(null)}
+                    >
+                      <div className="flex items-center">
+                        <span>{t('table.revisado')}</span>
+                        <SortArrow column="revisado" />
+                      </div>
+                    </th>
+                    <th
+                      className={getHeaderClassName('aprobado')}
+                      onClick={() => handleSort('aprobado')}
+                      onMouseEnter={() => setHoveredColumn('aprobado')}
+                      onMouseLeave={() => setHoveredColumn(null)}
+                    >
+                      <div className="flex items-center">
+                        <span>{t('table.aprobado')}</span>
+                        <SortArrow column="aprobado" />
+                      </div>
+                    </th>
+                    <th
+                      className={getHeaderClassName('fecha')}
+                      onClick={() => handleSort('fecha')}
+                      onMouseEnter={() => setHoveredColumn('fecha')}
+                      onMouseLeave={() => setHoveredColumn(null)}
+                    >
+                      <div className="flex items-center">
+                        <span>{t('table.fecha')}</span>
+                        <SortArrow column="fecha" />
+                      </div>
+                    </th>
+                    <th className="px-6 py-3 text-left text-sm">{t('table.acciones')}</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {sortedData.map((row, idx) => (
+                    <tr key={idx} className="border-border hover:bg-muted/50 border-b">
+                      <td className="text-muted-foreground px-6 py-3 text-sm">{row.id}</td>
+                      <td className="text-foreground px-6 py-3 text-sm">{row.titulo}</td>
+                      <td className="text-muted-foreground px-6 py-3 text-sm">{row.elaborado}</td>
+                      <td className="text-muted-foreground px-6 py-3 text-sm">{row.revisado}</td>
+                      <td className="text-muted-foreground px-6 py-3 text-sm">{row.aprobado}</td>
+                      <td className="text-muted-foreground px-6 py-3 text-sm">{row.fecha}</td>
+                      <td className="px-6 py-3 text-sm">
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Link to={`/forms/${row.id}?mode=view`}>
+                              <Button variant="ghost" size="icon" className="h-8 w-8">
+                                <Eye className="h-4 w-4" />
+                              </Button>
+                            </Link>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>{t('actions.view')}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </TooltipProvider>
   );
 }

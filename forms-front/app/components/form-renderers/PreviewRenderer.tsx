@@ -12,7 +12,7 @@ export function PreviewRenderer({ element, className }: PreviewRendererProps) {
     <div className={`pointer-events-none ${className}`}>
       <ElementRenderer
         element={element}
-        preview={true}
+        readOnly={true}
         onRightClick={() => {}} // Disabled in preview
       />
     </div>

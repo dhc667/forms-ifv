@@ -4,7 +4,11 @@ import i18n from './i18n';
 const urlParams = new URLSearchParams(window.location.search);
 const lang = urlParams.get('lang');
 
-if (lang && Array.isArray(i18n.options.supportedLngs) && i18n.options.supportedLngs.includes(lang)) {
+if (
+  lang &&
+  Array.isArray(i18n.options.supportedLngs) &&
+  i18n.options.supportedLngs.includes(lang)
+) {
   i18n.changeLanguage(lang);
 }
 

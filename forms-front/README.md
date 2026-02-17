@@ -49,13 +49,16 @@ npm run build
 This application is configured for deployment to GitHub Pages as a static SPA.
 
 #### Prerequisites
+
 - A GitHub repository
 - GitHub Pages enabled for the repository
 
 #### Configuration
+
 1. Update the base path in `vite.config.ts` to match your repository name:
+
    ```typescript
-   base: '/forms-front/', 
+   base: '/forms-front/',
    ```
 
 2. Enable GitHub Pages in your repository settings:
@@ -63,9 +66,11 @@ This application is configured for deployment to GitHub Pages as a static SPA.
    - Select "GitHub Actions" as the source
 
 #### Automated Deployment
+
 The application includes a GitHub Actions workflow that automatically deploys to GitHub Pages on every push to the main branch.
 
 #### Manual Deployment
+
 To deploy manually:
 
 ```bash
@@ -80,11 +85,13 @@ pnpm deploy
 ```
 
 The build process will:
+
 - Generate static assets in `build/client/`
 - Copy `index.html` to `404.html` for SPA routing
 - Deploy the client directory to GitHub Pages
 
 #### Repository Configuration
+
 Make sure your GitHub repository has Pages enabled and is configured to deploy from the `gh-pages` branch or GitHub Actions.
 
 ### DIY Deployment

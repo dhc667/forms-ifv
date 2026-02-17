@@ -3,3 +3,5 @@ export interface ImageElement {
   type: 'image';
   title: string;
 }
+
+export type ImageValue = string;

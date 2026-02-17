@@ -3,14 +3,21 @@
  * Generates random dates in DD-MM-YYYY format throughout 2024
  */
 
-const MONTHS = [
-  '01', '02', '03', '04', '05', '06',
-  '07', '08', '09', '10', '11', '12'
-] as const;
+const MONTHS = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'] as const;
 
 const DAYS_IN_MONTH = {
-  '01': 31, '02': 29, '03': 31, '04': 30, '05': 31, '06': 30,
-  '07': 31, '08': 31, '09': 30, '10': 31, '11': 30, '12': 31
+  '01': 31,
+  '02': 29,
+  '03': 31,
+  '04': 30,
+  '05': 31,
+  '06': 30,
+  '07': 31,
+  '08': 31,
+  '09': 30,
+  '10': 31,
+  '11': 30,
+  '12': 31,
 } as const;
 
 export function generateRandomDate(startDate?: Date, endDate?: Date): string {
@@ -33,5 +40,5 @@ export function generateRandomDate(startDate?: Date, endDate?: Date): string {
 export const DATE_SEEDS = {
   months: MONTHS,
   daysInMonth: DAYS_IN_MONTH,
-  year: 2024
+  year: 2024,
 } as const;

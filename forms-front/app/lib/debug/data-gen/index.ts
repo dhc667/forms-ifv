@@ -22,7 +22,7 @@ export function generateFormsData(count: number): FormRow[] {
       elaborado: generateSpanishName(),
       revisado: Math.random() > 0.7 ? generateMultipleNames(2) : generateSpanishName(),
       aprobado: generateSpanishName(),
-      fecha: generateRandomDate()
+      fecha: generateRandomDate(),
     };
   });
 }
@@ -49,7 +49,7 @@ export function generateSchemasData(count: number): SchemaRow[] {
       version: `v${Math.floor(Math.random() * 5) + 1}.${Math.floor(Math.random() * 10)}`,
       creadoPor: generateSpanishName(),
       fechaCreacion: generateRandomDate(),
-      estado: estados[Math.floor(Math.random() * estados.length)]
+      estado: estados[Math.floor(Math.random() * estados.length)],
     };
   });
 }
@@ -65,7 +65,7 @@ export function generateMyFormsData(count: number): MyFormRow[] {
     const formIndex = index + 1;
     const random = Math.random();
     let estado: MyFormRow['estado'];
-    
+
     if (random < estadoWeights[0]) {
       estado = 'draft';
     } else if (random < estadoWeights[0] + estadoWeights[1]) {
@@ -77,7 +77,7 @@ export function generateMyFormsData(count: number): MyFormRow[] {
     const baseForm: MyFormRow = {
       id: generateFormId(formIndex),
       titulo: generateFormTitle(formIndex),
-      estado
+      estado,
     };
 
     // Add optional fields based on status
