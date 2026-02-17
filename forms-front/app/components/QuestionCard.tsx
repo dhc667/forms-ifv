@@ -1,4 +1,5 @@
 import { Plus, Trash2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { ElementRenderer } from '@/components/form-renderers';
 import type { QuestionComponent } from '@/lib/form-builder/types/question';
@@ -18,6 +19,7 @@ export function QuestionCard({
   onElementRightClick,
   onAddQuestion,
 }: QuestionCardProps) {
+  const { t } = useTranslation('create-schema');
   return (
     <div className="border-primary-light bg-background group relative rounded-lg border-2 border-dashed p-6">
       <button
@@ -41,13 +43,13 @@ export function QuestionCard({
 
           <div className="flex justify-center gap-3 pt-4">
             <Button variant="default" size="sm" className="text-sm">
-              Text
+              {t('elementTypes.text')}
             </Button>
             <Button variant="default" size="sm" className="text-sm">
-              Table
+              {t('elementTypes.table')}
             </Button>
             <Button variant="default" size="sm" className="text-sm">
-              Selection
+              {t('elementTypes.selection')}
             </Button>
           </div>
         </div>

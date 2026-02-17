@@ -1,5 +1,10 @@
 {
   "addQuestion": "Agregar Pregunta",
   "save": "Guardar",
-  "saveSuccess": "Esquema guardado exitosamente"
+  "saveSuccess": "Esquema guardado exitosamente",
+  "elementTypes": {
+    "text": "Texto",
+    "table": "Tabla",
+    "selection": "Selección"
+  }
 }
