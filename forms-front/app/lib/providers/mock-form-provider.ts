@@ -35,7 +35,7 @@ function generateRandomValue(type: string): FormComponentValue {
       return Array.from({ length: count }, (_, i) => `option-${i}`);
 
     case 'image':
-      return 'https://example.com/sample-image.jpg';
+      return 'https://picsum.photos/600/200';
 
     default:
       return '';
