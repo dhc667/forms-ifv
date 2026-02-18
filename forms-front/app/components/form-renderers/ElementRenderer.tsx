@@ -1,5 +1,4 @@
 import type { QuestionComponent } from '@/lib/form-builder/types/question';
-import type { TableCell, TableElement } from '@/lib/form-builder/types/table';
 import type { FormComponentValue } from '@/lib/form-builder/types/form';
 import type { SelectionValue } from '@/lib/form-builder/types/selection';
 import { TextRenderer } from './TextRenderer';
@@ -32,7 +31,7 @@ export function ElementRenderer({
     case 'text':
       return (
         <TextRenderer
-          element={element as any}
+          element={element}
           onRightClick={onRightClick}
           readOnly={readOnly}
           values={values}
@@ -41,7 +40,7 @@ export function ElementRenderer({
     case 'table':
       return (
         <TableRenderer
-          element={element as any}
+          element={element}
           onRightClick={onRightClick}
           readOnly={readOnly}
           values={values}
@@ -51,7 +50,7 @@ export function ElementRenderer({
     case 'single-selection':
       return (
         <SelectionRenderer
-          element={element as any}
+          element={element}
           onRightClick={onRightClick}
           readOnly={readOnly}
           value={values[element.id] as SelectionValue | undefined}

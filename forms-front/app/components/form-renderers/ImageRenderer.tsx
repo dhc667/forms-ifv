@@ -29,7 +29,7 @@ export function ImageRenderer({
       <div className="mb-2">
         <Label className="text-base font-medium text-current">{element.title}</Label>
       </div>
-      <div className="border-muted-foreground/25 flex h-[150px] items-center justify-center overflow-hidden rounded-lg border-2 border-dashed">
+      <div className="border-muted-foreground/25 flex h-37.5 items-center justify-center overflow-hidden rounded-lg border-2 border-dashed">
         {value ? (
           <img src={value} alt={element.title} className="max-h-full max-w-full object-contain" />
         ) : (
