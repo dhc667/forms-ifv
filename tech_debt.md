@@ -1,3 +1,4 @@
 - element renderers should receive well-typed values
 - on value change for element renderers should be id specific, they shouldn't have the full api
 - my forms page table should be componentized
+- search bar should sort stuff faster, or add a debounce

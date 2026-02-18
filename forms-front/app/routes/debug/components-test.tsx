@@ -189,7 +189,11 @@ export default function ComponentsTest() {
                     <FormItem>
                       <FormLabel>Username</FormLabel>
                       <FormControl>
-                        <Input placeholder="Enter your username" {...field} />
+                        <Input
+                          placeholder="Enter your username"
+                          className="placeholder:text-muted-foreground"
+                          {...field}
+                        />
                       </FormControl>
                       <FormDescription>This is your public display name.</FormDescription>
                       <FormMessage />
@@ -203,7 +207,12 @@ export default function ComponentsTest() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="Enter your email" {...field} />
+                        <Input
+                          type="email"
+                          placeholder="Enter your email"
+                          className="placeholder:text-muted-foreground"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
